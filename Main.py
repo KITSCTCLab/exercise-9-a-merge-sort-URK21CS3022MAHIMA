@@ -1,7 +1,13 @@
 from typing import List
 
 def merge_sort(data) -> None:
-  # Write code here
+  MergeSort(A, p, r):
+    if p > r 
+        return
+    q = (p+r)/2
+    mergeSort(A, p, q)
+    mergeSort(A, q+1, r)
+    merge(A, p, q, r)
 
 
 # Do not change the following code
