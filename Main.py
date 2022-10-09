@@ -1,33 +1,34 @@
 from typing import List
 
-def merge_sort(data) -> None:
-  if len(array) > 1:
-        r = len(array)//2
-        L = array[:r]
-        M = array[r:]
-        
-        mergeSort(L)
-        mergeSort(M)
+def merge_sort(data):
+    if len(data)>1:
+        mid = len(data)//2
+        lefthalf = data[:mid]
+        righthalf = data[mid:]
 
-        i = j = k = 0
-        while i < len(L) and j < len(M):
-            if L[i] < M[j]:
-                array[k] = L[i]
-                i += 1
+        merge_sort(lefthalf)
+        merge_sort(righthalf)
+        i=j=k=0       
+        while i < len(lefthalf) and j < len(righthalf):
+            if lefthalf[i] < righthalf[j]:
+                data[k]=lefthalf[i]
+                i=i+1
             else:
-                array[k] = M[j]
-                j += 1
-            k += 1
-        while i < len(L):
-            array[k] = L[i]
-            i += 1
-            k += 1
+                data[k]=righthalf[j]
+                j=j+1
+            k=k+1
 
-        while j < len(M):
-            array[k] = M[j]
-            j += 1
-            k += 1
-            
+        while i < len(lefthalf):
+            data[k]=lefthalf[i]
+            i=i+1
+            k=k+1
+
+        while j < len(righthalf):
+            data[k]=righthalf[j]
+            j=j+1
+            k=k+1
+
+
 # Do not change the following code
 input_data = input()
 data = []
@@ -38,3 +39,4 @@ for item in input_data.split(', '):
     data.append(int(item))
 merge_sort(data)
 print(data)
+
